@@ -2,23 +2,26 @@
 import PostSearch from "@/components/posts/PostSearch.vue";
 import PostCard from "@/components/posts/PostCard.vue";
 import { storeToRefs } from 'pinia'
-import { usePostsStore } from '~/stores/posts'
+import { usePostsStore } from '@/stores/posts'
 const store = usePostsStore()
 const { getPosts } = storeToRefs(store)
 const searchText = ref(null)
 
 const content = computed(() => {
-  console.log(getPosts, searchText)
-  if (searchText) {
-    return searchContent(getPosts.value, searchText)
+  if (searchText.value) {
+    return searchPosts(getPosts.value, searchText.value)
   } else {
     return getPosts.value
   }
 })
 
-function searchContent(arr, text) {
-  console.log(arr, text)
-  return arr
+function searchPosts(arr, text) {
+  const result = []
+  for (let j=0; j < arr.length; j++) {
+    const post = arr[j]
+    if (post?.title?.match(text)) result.push(post);
+  }
+  return result
 }
 
 </script>
