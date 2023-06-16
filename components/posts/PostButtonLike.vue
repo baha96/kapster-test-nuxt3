@@ -1,8 +1,10 @@
 <script setup lang="ts">
+// Import core
 import { storeToRefs } from 'pinia'
-import { usePostsStore } from '~/stores/posts'
+import { usePostsStore } from '@/stores/posts'
 
-import IconLike from "~/components/shared/icons/IconLike.vue";
+// Import Icons
+import IconLike from "@/components/shared/icons/IconLike.vue";
 
 const store = usePostsStore()
 const { getCurrentPostIsLike, getCurrentPostLikesCount } = storeToRefs(store)
@@ -20,11 +22,15 @@ const { togglePostLike } = store
       }"
       @click="togglePostLike"
   >
+    <!-- Icons   -->
     <IconLike :fill="getCurrentPostIsLike ? '#dc3545' : '#585c5e'" />
+
+    <!-- Text   -->
     <span>
       {{ getCurrentPostLikesCount || '0' }}
       Нравиться
     </span>
+
   </button>
 </template>
 
@@ -33,11 +39,13 @@ const { togglePostLike } = store
   background-color: transparent;
   border: 0;
   transition: 300ms;
-  span {
-    margin-left: 8px;
-  }
+
   &:hover {
     opacity: 0.7
+  }
+
+  span {
+    margin-left: 8px;
   }
 }
 </style>
