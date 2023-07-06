@@ -28,7 +28,7 @@ const { togglePostLike } = store
     <!-- Text   -->
     <span>
       {{ getCurrentPostLikesCount || '0' }}
-      Нравиться
+      Нравится
     </span>
 
   </button>
