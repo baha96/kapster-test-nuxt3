@@ -32,7 +32,7 @@ function searchPosts(arr, text) {
   const result = []
   for (let j=0; j < arr.length; j++) {
     const post = arr[j]
-    if (post?.title?.match(text)) result.push(post);
+    if (post?.title?.toLowerCase().includes(text.toLowerCase())) result.push(post);
   }
   return result
 }
