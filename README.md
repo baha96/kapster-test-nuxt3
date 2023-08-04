@@ -1,6 +1,7 @@
 # Demo
 
 [netlify.app](https://enchanting-syrniki-89f272.netlify.app/)
+- Оценка Composition Api
 
 # Nuxt 3 Minimal Starter
 
